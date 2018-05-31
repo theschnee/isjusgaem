@@ -310,7 +310,8 @@ class MatchHandler(webapp.RequestHandler):
 
             matchkey = d[key].crush + ':' + d[key].id
             # If there's a match, we expect to see this key
-            if matchkey in d:
+            # if matchkey in d:
+            for x in range(0, d.len()):
                 logging.warning('%s matches %s!\n' % (d[key].id, d[key].crush))
                 # look up crusher's preferred email
                 user = User.get_by_key_name(d[key].id)
